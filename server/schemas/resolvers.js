@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Goal } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,8 +8,9 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v')
-          .populate('thoughts')
-          .populate('friends');
+          .populate('goals')
+          .populate('interviews')
+          .populate('ratings');
 
         return userData;
       }
@@ -17,28 +18,30 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    thoughts: async (parent, { username }) => {
+    goals: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Goal.find(params).sort({ createdAt: -1 });
     },
-    // get a thought by ID
-    thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id });
+    // get a goal by ID
+    goal: async (parent, { _id }) => {
+      return Goal.findOne({ _id });
     },
 
     // get all users
     users: async () => {
       return User.find()
         .select('-__v')
-        .populate('friends')
-        .populate('thoughts');
+        .populate('goals')
+        .populate('interviews')
+        .populate('ratings');
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v')
-        .populate('friends')
-        .populate('thoughts');
+        .populate('goals')
+        .populate('interviews')
+        .populate('ratings');
     }
   },
 
@@ -65,47 +68,67 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, args, context) => {
+    addGoal: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const goal = await Goal.create({ ...args, username: context.user.username });
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
+          { $push: { goals: goal._id } },
           { new: true }
         );
     
-        return thought;
+        return goal;
       }
     
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
-      if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
-          { new: true, runValidators: true }
-        );
+
+    // addInterview: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const interview = await Interview.create({ ...args, username: context.user.username });
     
-        return updatedThought;
-      }
+    //     await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { interviews: interview._id } },
+    //       { new: true }
+    //     );
     
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    addFriend: async (parent, { friendId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { friends: friendId } },
-          { new: true }
-        ).populate('friends');
+    //     return interview;
+    //   }
     
-        return updatedUser;
-      }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+
+    // addInterview: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goalId },
+    //       { $push: { interviews: { interviewPosition, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
     
-      throw new AuthenticationError('You need to be logged in!');
-    }
+    //     return updatedThought;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+
+    // addFriend: async (parent, { friendId }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { friends: friendId } },
+    //       { new: true }
+    //     ).populate('friends');
+    
+    //     return updatedUser;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // }
   }
 };
 

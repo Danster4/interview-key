@@ -7,23 +7,33 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    thoughts: [Thought]
-    friends: [User]
+    goals: [Goal]
   }
 
-  type Thought {
+  type Goal {
     _id: ID
-    thoughtText: String
+    goalName: String
     createdAt: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+    interviewCount: Int
+    Interviews: [Interview]
   }
 
-  type Reaction {
+  type Interview {
     _id: ID
-    reactionBody: String
+    interviewPosition: String
+    interviewLocation: String
+    interviewDate: Int
+    interviewTime: Int
+    ratingCount: Int
+    ratings: [Rating]
+    createdAt: String
+    username: String
+  }
+
+  type Rating {
+    _id: ID
+    rateLocation: Int
     createdAt: String
     username: String
   }
@@ -37,16 +47,19 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(_id: ID!): Thought
+    goals(username: String): [Goal]
+    goal(_id: ID!): Goal
+    interviews(username: String): [Interview]
+    interview(_id: ID!): Interview
+    ratings(username: String): [Rating]
+    rating(_id: ID!): Rating
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
-    addFriend(friendId: ID!): User
+    addGoal(goalName: String!): Goal
+    addInterview(interviewPosition: String!, interviewLocation: String!): Interview
   }
 `;
 
