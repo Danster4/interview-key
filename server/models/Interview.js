@@ -22,11 +22,11 @@ const interviewSchema = new Schema(
     },
     // figure out how to add specific Date (on calendar)
     interviewDate: {
-      type: Date,
+      type: String,
     },
     // figure out info for Time
     interviewTime: {
-      type: Date,
+      type: String,
     },
     // ratings: 
     // {
