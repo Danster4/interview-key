@@ -27,6 +27,11 @@ const resolvers = {
       return Goal.findOne({ _id });
     },
 
+    // // get an interview by ID
+    // interview: async (parent, { _id }) => {
+    //   return Goal.findOne(interviews: { _id });
+    // },
+
     // get all users
     users: async () => {
       return User.find()
@@ -97,6 +102,20 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    // addInterview: async (parent, { goalId, interviewPosition, interviewLocation, interviewDate, interviewTime, ratings: { rateLocation, ratePeople } }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goalId },
+    //       { $push: { interviews: { interviewPosition, interviewLocation, interviewDate, interviewTime, ratings: { rateLocation, ratePeople}, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedGoal;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     // addRating: async (parent, { goalId, rateLocation }, context) => {
     //   if (context.user) {

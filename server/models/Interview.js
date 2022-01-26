@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-const ratingSchema = require('./Rating');
+// const ratingSchema = require('./Rating');
 
 const interviewSchema = new Schema(
   {
@@ -29,7 +29,11 @@ const interviewSchema = new Schema(
     interviewTime: {
       type: String,
     },
-    ratings: [ratingSchema]
+    // ratings: 
+    //   {
+    //     rateLocation: String,
+    //     ratePeople: Number
+    //   }
   },
   {
     toJSON: {

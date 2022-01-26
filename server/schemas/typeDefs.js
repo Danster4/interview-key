@@ -25,15 +25,14 @@ const typeDefs = gql`
     interviewLocation: String
     interviewDate: String
     interviewTime: String
-    ratingCount: Int
-    ratings: [Rating]
     createdAt: String
     username: String
   }
 
   type Rating {
     _id: ID
-    rateLocation: Int
+    rateLocation: String
+    ratePeople: Int
     createdAt: String
     username: String
   }
