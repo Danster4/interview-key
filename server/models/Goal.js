@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const interviewSchema = require('./Interview');
+
 
 const goalSchema = new Schema(
   {
@@ -18,11 +20,7 @@ const goalSchema = new Schema(
       type: String,
       required: true
     },
-    interviews: 
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Interview'
-    }
+    interviews: [interviewSchema]
   },
   {
     toJSON: {

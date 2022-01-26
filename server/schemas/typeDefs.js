@@ -16,17 +16,13 @@ const typeDefs = gql`
     createdAt: String
     username: String
     interviewCount: Int
-    Interviews: [Interview]
+    interviews: [Interview]
   }
 
   type Interview {
     _id: ID
     interviewPosition: String
     interviewLocation: String
-    interviewDate: Int
-    interviewTime: Int
-    ratingCount: Int
-    ratings: [Rating]
     createdAt: String
     username: String
   }
@@ -59,9 +55,22 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addGoal(goalName: String!): Goal
-    addInterview(interviewPosition: String!, interviewLocation: String!): Interview
+    addInterview(goalId: ID!, interviewPosition: String!, interviewLocation: String!): Goal
   }
 `;
 
 // export the typeDefs
 module.exports = typeDefs;
+
+
+// type Interview {
+//   _id: ID
+//   interviewPosition: String
+//   interviewLocation: String
+//   interviewDate: Int
+//   interviewTime: Int
+//   ratingCount: Int
+//   ratings: [Rating]
+//   createdAt: String
+//   username: String
+// }

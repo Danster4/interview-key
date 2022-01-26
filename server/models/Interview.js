@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const interviewSchema = new Schema(
@@ -28,11 +28,11 @@ const interviewSchema = new Schema(
     interviewTime: {
       type: Date,
     },
-    ratings: 
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Rating'
-    }
+    // ratings: 
+    // {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'Rating'
+    // }
   },
   {
     toJSON: {
@@ -45,6 +45,4 @@ interviewSchema.virtual('ratingCategoriesCount').get(function() {
   return this.ratings.length;
 });
 
-const Interview = model('Interview', interviewSchema);
-
-module.exports = Interview;
+module.exports = interviewSchema;

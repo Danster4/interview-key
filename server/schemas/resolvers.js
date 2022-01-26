@@ -84,6 +84,20 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    addInterview: async (parent, { goalId, interviewPosition, interviewLocation }, context) => {
+      if (context.user) {
+        const updatedGoal = await Goal.findOneAndUpdate(
+          { _id: goalId },
+          { $push: { interviews: { interviewPosition, interviewLocation, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedGoal;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
     // addInterview: async (parent, args, context) => {
     //   if (context.user) {
     //     const interview = await Interview.create({ ...args, username: context.user.username });
