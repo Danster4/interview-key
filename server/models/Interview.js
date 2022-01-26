@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const ratingSchema = require('./Rating');
 
 const interviewSchema = new Schema(
   {
@@ -28,11 +29,7 @@ const interviewSchema = new Schema(
     interviewTime: {
       type: String,
     },
-    // ratings: 
-    // {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Rating'
-    // }
+    ratings: [ratingSchema]
   },
   {
     toJSON: {
@@ -46,3 +43,4 @@ interviewSchema.virtual('ratingCategoriesCount').get(function() {
 });
 
 module.exports = interviewSchema;
+

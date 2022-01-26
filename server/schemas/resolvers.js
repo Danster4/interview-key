@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Goal } = require('../models');
+const { User, Goal, Interview } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -97,6 +97,20 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    // addRating: async (parent, { goalId, rateLocation }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: interviewId },
+    //       { $push: { ratings: { rateLocation, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedInterview;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     // removeInterview: async (parent, { goalId, interviewPosition, interviewLocation }, context) => {
     //   if (context.user) {
