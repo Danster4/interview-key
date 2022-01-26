@@ -12,7 +12,7 @@ React.createElement("div", { className: "container" }, /*#__PURE__*/
 React.createElement("h1", { className: "title" }, "Interview Key"), /*#__PURE__*/
 
 
-React.createElement("h2", { className: "subtitle" }, "With React + Bulma + Font Awesome"))));
+React.createElement("h2", { className: "subtitle" }, "Track and follow your Interviews"))));
 
 class Auth extends React.Component {constructor(...args) {super(...args);_defineProperty(this, "state",
 
