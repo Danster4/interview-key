@@ -30,16 +30,16 @@ class Auth extends React.Component {constructor(...args) {super(...args);_define
     return /*#__PURE__*/(
       React.createElement("section", { className: "section" }, /*#__PURE__*/
 
-      React.createElement("div", { className: "has-text-centered" }, /*#__PURE__*/
-      React.createElement(LoginButton, { icon: "google", name: "Google", onClick: this.loginWithProvider }), /*#__PURE__*/
-      React.createElement(LoginButton, { icon: "twitter", name: "Twitter", onClick: this.loginWithProvider }), /*#__PURE__*/
-      React.createElement(LoginButton, { icon: "facebook", name: "Facebook", onClick: this.loginWithProvider })), /*#__PURE__*/
+      //React.createElement("div", { className: "has-text-centered" }, /*#__PURE__*/
+      //React.createElement(LoginButton, { icon: "google", name: "Google", onClick: this.loginWithProvider }), /*#__PURE__*/
+      //React.createElement(LoginButton, { icon: "twitter", name: "Twitter", onClick: this.loginWithProvider }), /*#__PURE__*/
+      //React.createElement(LoginButton, { icon: "facebook", name: "Facebook", onClick: this.loginWithProvider })), /*#__PURE__*/
 
 
-      React.createElement("div", { className: "has-text-centered", style: { margin: '10px 0' } }, /*#__PURE__*/
-      React.createElement("hr", null), /*#__PURE__*/
-      React.createElement("span", { style: { verticalAlign: 'middle', padding: '0 10px' } }, "OR"), /*#__PURE__*/
-      React.createElement("hr", null)), /*#__PURE__*/
+      //React.createElement("div", { className: "has-text-centered", style: { margin: '10px 0' } }, /*#__PURE__*/
+      //React.createElement("hr", null), /*#__PURE__*/
+      //React.createElement("span", { style: { verticalAlign: 'middle', padding: '0 10px' } }, "OR"), /*#__PURE__*/
+      //React.createElement("hr", null)), /*#__PURE__*/
 
 
       React.createElement(LoginForm, { handleSubmit: this.loginWithEmailAndPassword }), /*#__PURE__*/
