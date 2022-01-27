@@ -23,5 +23,9 @@
   "homepage": "https://github.com/Danster4/interview-key#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.1"
   }
 }
