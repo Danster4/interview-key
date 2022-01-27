@@ -29,6 +29,7 @@ const interviewSchema = new Schema(
     interviewTime: {
       type: String,
     },
+    // ratings: [ratingSchema]
     // ratings: 
     //   {
     //     rateLocation: String,
@@ -47,4 +48,5 @@ interviewSchema.virtual('ratingCategoriesCount').get(function() {
 });
 
 module.exports = interviewSchema;
+
 

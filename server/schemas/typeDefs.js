@@ -31,8 +31,8 @@ const typeDefs = gql`
 
   type Rating {
     _id: ID
-    rateLocation: String
-    ratePeople: Int
+    rateLocation: Int
+    ratePeople: String
     createdAt: String
     username: String
   }
@@ -59,8 +59,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addGoal(goalName: String!): Goal
     addInterview(goalId: ID, interviewPosition: String!, interviewLocation: String!, interviewDate: String!, interviewTime: String!): Goal
-    addRating(interviewId: ID!, rateLocation: Int): Interview
-
+    addRating(interviewId: ID!, rateLocation: Int, ratePeople: String): Interview
   }
 `;
 

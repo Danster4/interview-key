@@ -6,6 +6,9 @@ const ratingSchema = new Schema(
     rateLocation: {
       type: Number
     },
+    ratePeople: {
+      type: String
+    },
     createdAt: {
       type: Date,
       default: Date.now,
