@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
+import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
@@ -40,11 +41,12 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/" component={Home} />
+              {/* <Route exact path="/home" component={Home} /> */}
+              <Route exact path="/homepage" component={Homepage} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
+              {/* <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/thought/:id" component={SingleThought} />
+              <Route exact path="/thought/:id" component={SingleThought} /> */}
             
               <Route component={NoMatch} />
             </Switch>
