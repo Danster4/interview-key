@@ -1,36 +1,49 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_THOUGHTS = gql `
-  query thoughts($username: String) {
-    thoughts(username: $username) {
+export const QUERY_ME = gql`
+  {
+    me {
       _id
-      thoughtText
-      createdAt
       username
-      reactionCount
-      reactions {
+      email 
+      goalCount
+      goals {
         _id
+        goalName
         createdAt
-        username
-        reactionBody
+        interviewCount
+        interviews {
+          _id
+          interviewPosition
+          interviewLocation
+          interviewDate
+          interviewTime
+          createdAt
+        }
       }
     }
   }
 `;
 
-export const QUERY_THOUGHT = gql `
-  query thought($id: ID!) {
-    thought(_id: $id) {
-      _id
-      thoughtText
-      createdAt
+export const QUERY_USERS = gql `
+  query {
+    users {
       username
-      reactionCount
-      reactions {
+      _id
+      email
+      goalCount
+      goals {
         _id
+        goalName
         createdAt
-        username
-        reactionBody
+        interviewCount
+        interviews {
+          interviewPosition
+          interviewLocation
+          interviewDate
+          interviewTime
+          createdAt
+        }
       }
     }
   }
@@ -42,57 +55,60 @@ export const QUERY_USER = gql `
       _id
       username
       email
-      friendCount
-      friends {
+      goalCount
+      goals {
         _id
-        username
-      }
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-      }
-    }
-  }
-`;
-
-export const QUERY_ME = gql`
-  {
-    me {
-      _id
-      username
-      friendCount
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-        reactions {
+        goalName
+        interviewCount
+        interviews {
           _id
+          interviewPosition
+          interviewLocation
+          interviewDate
+          interviewTime
           createdAt
-          reactionBody
-          username
         }
       }
-      friends {
+    }
+  }
+`;
+
+
+export const QUERY_GOALS = gql `
+  query goals($username: String) {
+    goals(username: $username) {
+      _id
+      goalName
+      createdAt
+      username
+      interviewCount
+      interviews {
         _id
-        username
+        interviewPosition
+        interviewLocation
+        interviewDate
+        interviewTime
+        createdAt
       }
     }
   }
 `;
 
-export const QUERY_ME_BASIC = gql`
-  {
-    me {
+export const QUERY_GOAL = gql `
+  query goal($goalId: ID!) {
+    goal(_id: $goalId) {
       _id
+      goalName
+      createdAt
       username
-      email
-      friendCount
-      friends {
+      interviewCount
+      interviews {
         _id
-        username
+        interviewPosition
+        interviewLocation
+        interviewDate
+        interviewTime
+        createdAt
       }
     }
   }

@@ -8,6 +8,8 @@ const typeDefs = gql`
     username: String
     email: String
     goals: [Goal]
+    goalCount: Int
+
   }
 
   type Goal {

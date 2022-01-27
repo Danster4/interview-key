@@ -24,46 +24,45 @@ export const ADD_USER = gql `
   }
 `;
 
-export const ADD_FRIEND = gql`
-  mutation addFriend($id: ID!) {
-    addFriend(friendId: $id) {
+export const ADD_GOAL = gql`
+  mutation addGoal($goalName: String!) {
+    addGoal(goalName: $goalName) {
       _id
-      username
-      friendCount
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
-
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
-      _id
-      thoughtText
+      goalName
       createdAt
       username
-      reactionCount
-      reactions {
-        _id
-      }
     }
   }
 `;
 
-export const ADD_REACTION = gql`
-  mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
-    addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+export const ADD_INTERVIEW = gql`
+  mutation addInterview($goalId: ID!, $interviewPosition: String!, $interviewLocation: String!, $interviewDate: String!, $interviewTime: String!) {
+    addInterview(goalId: $goalId, interviewPosition: $interviewPosition, interviewLocation: $interviewLocation, interviewDate: $interviewDate, interviewTime: $interviewTime) {
       _id
-      reactionCount
-      reactions {
+      interviews {
         _id
-        reactionBody
+        interviewPosition
+        interviewLocation
+        interviewDate
+        interviewTime
         createdAt
         username
       }
     }
   }
 `;
+
+// export const ADD_RATING = gql`
+//   mutation addRating($interviewId: ID!, $rateLocation: Int, $ratePeople: String ) {
+//     addRating(interviewId: $interviewId, rateLocation: $rateLocation, ratePeople: $ratePeople) {
+//       _id
+//         ratings {
+//           _id
+//           rateLocation
+//           ratePeople
+//           createdAt
+//           username
+//       } 
+//     }
+//   }
+// `;
