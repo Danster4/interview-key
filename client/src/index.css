@@ -1,10 +1,10 @@
 :root {
   --primary: #497573;
-  --secondary: #0400ff;
+  --secondary: #0011ff;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #e1f5f4;
-  --dark: #6c7575;
+  --dark: #6c7575ea;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -26,11 +26,11 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
-  color: var(--dark);
+  color: rgba(255, 255, 255, 0);
   background-color: #f3fffee1;
 }
 
