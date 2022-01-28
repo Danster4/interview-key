@@ -34,7 +34,7 @@ const Home = () => {
         {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <GoalList
-              goals={data?.me.goals}
+              goals={userData.me.goals}
             />
           </div>
         ) : null}

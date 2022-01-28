@@ -10,7 +10,6 @@ const resolvers = {
           .select('-__v')
           .populate('goals')
           .populate('interviews')
-          .populate('ratings');
 
         return userData;
       }
