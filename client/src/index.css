@@ -1,6 +1,6 @@
 :root {
   --primary: #497573;
-  --secondary: #99f7f2;
+  --secondary: #0400ff;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #e1f5f4;
@@ -40,7 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Karla', sans-serif;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
