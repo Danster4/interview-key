@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Goal } = require('../models');
+const { User, Goal, Interview } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -26,6 +26,11 @@ const resolvers = {
     goal: async (parent, { _id }) => {
       return Goal.findOne({ _id });
     },
+
+    // // get an interview by ID
+    // interview: async (parent, { _id }) => {
+    //   return Goal.findOne(interviews: { _id });
+    // },
 
     // get all users
     users: async () => {
@@ -68,10 +73,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     addGoal: async (parent, args, context) => {
       if (context.user) {
         const goal = await Goal.create({ ...args, username: context.user.username });
-    
+
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { goals: goal._id } },
@@ -83,6 +89,92 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    addInterview: async (parent, { goalId, interviewPosition, interviewLocation, interviewDate, interviewTime }, context) => {
+      if (context.user) {
+        const updatedGoal = await Goal.findOneAndUpdate(
+          { _id: goalId },
+          { $push: { interviews: { interviewPosition, interviewLocation, interviewDate, interviewTime, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedGoal;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // addRating: async (parent, { interviewId, rateLocation, ratePeople }, context) => {
+    //   if (context.user) {
+    //     const updatedInterview = await Interview.findOneAndUpdate(
+    //       { _id: interviewId },
+    //       { $push: { ratings: { rateLocation, ratePeople, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedInterview;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+    // addRating: async (parent, { interviewId, rateLocation, ratePeople }, context) => {
+    //   if (context.user) {
+    //     const updatedInterview = await Goal.findOneAndUpdate(
+    //       { _id: interviewId },
+    //       { $push: { interviews: { ratings: { rateLocation, ratePeople } } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedInterview;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+    // addRating: async (parent, { goalId, interviewPosition, interviewLocation, interviewDate, interviewTime }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goalId },
+    //       { $push: { interviews: { interviewPosition, interviewLocation, interviewDate, interviewTime, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedGoal;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+  
+
+    // addRating: async (parent, { goalId, rateLocation }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: interviewId },
+    //       { $push: { ratings: { rateLocation, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedInterview;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+
+    // removeInterview: async (parent, { goalId, interviewPosition, interviewLocation }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goalId },
+    //       { $push: { interviews: { interviewPosition, interviewLocation, username: context.user.username } } },
+    //       { new: true, runValidators: true }
+    //     );
+    
+    //     return updatedGoal;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     // addInterview: async (parent, args, context) => {
     //   if (context.user) {

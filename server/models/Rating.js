@@ -1,9 +1,12 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const ratingSchema = new Schema(
   {
     rateLocation: {
+      type: Number
+    },
+    ratePeople: {
       type: String
     },
     createdAt: {
@@ -23,10 +26,4 @@ const ratingSchema = new Schema(
   }
 );
 
-// ratingSchema.virtual('ratingCategoriesCount').get(function() {
-//   return this.ratings.length;
-// });
-
-const Rating = model('Rating', ratingSchema);
-
-module.exports = Rating;
+module.exports = ratingSchema;
