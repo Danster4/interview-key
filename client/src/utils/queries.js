@@ -113,3 +113,6 @@ export const QUERY_GOAL = gql `
     }
   }
 `;
+
+export const QUERY_INTERVIEW = gql`
+`;

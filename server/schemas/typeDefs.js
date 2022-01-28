@@ -50,7 +50,7 @@ const typeDefs = gql`
     user(username: String!): User
     goals(username: String): [Goal]
     goal(_id: ID!): Goal
-    interviews(username: String): [Interview]
+    interviews(_id: ID!): [Interview]
     interview(_id: ID!): Interview
     ratings(username: String): [Rating]
     rating(_id: ID!): Rating

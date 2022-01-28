@@ -26,11 +26,19 @@ const resolvers = {
     goal: async (parent, { _id }) => {
       return Goal.findOne({ _id });
     },
-
-    // // get an interview by ID
+    
+    // get an interview by ID
     // interview: async (parent, { _id }) => {
-    //   return Goal.findOne(interviews: { _id });
+    //   console.log(_id)
+    //   return Goal.interviews({interviews: { _id }});
+      
     // },
+
+    interviews: async (parent, { _id }) => {
+      const goal = await Goal.findOne({ _id })
+      console.log(goal.interviews)
+      return goal.interviews
+    },
 
     // get all users
     users: async () => {
@@ -105,15 +113,22 @@ const resolvers = {
     },
 
     // addRating: async (parent, { interviewId, rateLocation, ratePeople }, context) => {
-    //   if (context.user) {
-    //     const updatedInterview = await Interview.findOneAndUpdate(
-    //       { _id: interviewId },
-    //       { $push: { ratings: { rateLocation, ratePeople, username: context.user.username } } },
-    //       { new: true, runValidators: true }
-    //     );
+    //   // if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goalId },
+    //   //}
+
+
+
+      // if (context.user) {
+      //   const updatedInterview = await Interview.findOneAndUpdate(
+      //     { _id: interviewId },
+      //     { $push: { ratings: { rateLocation, ratePeople, username: context.user.username } } },
+      //     { new: true, runValidators: true }
+      //   );
     
-    //     return updatedInterview;
-    //   }
+      //   return updatedInterview;
+      
     
     //   throw new AuthenticationError('You need to be logged in!');
     // },
