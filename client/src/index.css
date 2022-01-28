@@ -1256,3 +1256,7 @@ hr {
   vertical-align: middle;
   width: 100px;
 }
+
+.GoalTitle {
+  color:rgb(228, 46, 1);
+}

@@ -1,45 +1,48 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
-import ThoughtList from '../components/ThoughtList';
+import { QUERY_GOALS, QUERY_ME } from '../utils/queries';
+import GoalList from '../components/GoalList';
+
 import Auth from '../utils/auth';
-import FriendList from '../components/FriendsList';
-import ThoughtForm from '../components/ThoughtForm';
+import GoalForm from '../components/GoalForm';
 
 const Home = () => {
   // use useQuery hook to make query request
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
-  console.log(thoughts);
+  const { loading, data } = useQuery(QUERY_GOALS);
+  const goals = data?.goals || [];
+  console.log(goals);
 
   const loggedIn = Auth.loggedIn();
   
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
-  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const { data: userData } = useQuery(QUERY_ME);
   return (
     <main>
       <div className='flex-row justify-space-between'>
-        {loggedIn && (
-          <div className="col-12 mb-3">
-            <ThoughtForm />
-          </div>
-        )}
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        
+        <div className={`col-12 mb-3`}>
+          <h2 class="GoalTitle">
+            Your Goals
+          </h2>
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList thoughts={thoughts} title="Some Feed for Thought(s)..." />
+            <GoalList goals={goals} />
           )}
         </div>
+
         {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
-            <FriendList
-              username={userData.me.username}
-              friendCount={userData.me.friendCount}
-              friends={userData.me.friends}
+            <GoalList
+              goals={data?.me.goals}
             />
           </div>
         ) : null}
+        
+          <div className="col-12 mb-3">
+            <GoalForm />
+          </div>
+      
       </div>
     </main>
   );

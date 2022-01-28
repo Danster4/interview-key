@@ -9,8 +9,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
+import SingleGoal from './pages/SingleGoal';
 import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
@@ -40,11 +39,10 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/thought/:id" component={SingleThought} />
+              <Route exact path="/goal/:id" component={SingleGoal} />
             
               <Route component={NoMatch} />
             </Switch>
