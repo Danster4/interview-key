@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_GOAL } from '../utils/queries';
 // import Auth from '../utils/auth';
-// import ReactionList from '../components/ReactionList';
+// import InterviewList from '../components/InterviewList';
 // import ReactionForm from '../components/ReactionForm';
 
 const SingleGoal = props => {
@@ -33,8 +33,8 @@ const SingleGoal = props => {
         </div>
       </div>
 
-      {/* {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
-      {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />} */}
+      {/* {goal.interviewCount > 0 && <InterviewList interviews={goal.interviews} />} */}
+      
     </div>
 
     

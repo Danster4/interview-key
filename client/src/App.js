@@ -6,10 +6,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleGoal from './pages/SingleGoal';
+import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
@@ -39,9 +40,10 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/home" component={Home} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/goal/:id" component={SingleGoal} />
             
               <Route component={NoMatch} />
