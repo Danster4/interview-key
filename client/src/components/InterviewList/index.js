@@ -17,7 +17,7 @@ const InterviewList = ({interviews, username, goalId}) => {
       {interviews.map(interview => (
 
         <button className="btn w-100 display-block mb-2" key={interview._id}>
-          <Link to={{ pathname: `/goal/${goalId}/interview/${interview._id}`, state: { interview: interview, username: username } }}>
+          <Link to={{ pathname: `/goal/${goalId}/interview/${interview._id}`, state: { goalId: goalId, interview: interview, username: username } }}>
             <h2>{interview.interviewPosition}
               <br /> 
               at {interview.interviewLocation}</h2> 

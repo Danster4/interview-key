@@ -1,11 +1,22 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 const SingleInterview = (props) => {
 
-  const { interview, username } = props.location.state
+  const { interview, username, goalId } = props.location.state
 
   return (
     <div>
+      {/* leave area for back button ... working on back button to individual goal - for now, use browser back arrow or dashboard button */}
+      {/* <button key={goalId}>
+        {/* <Redirect to="/goal/${goalId}">
+          <h4>Back to your Goal</h4> 
+        </Redirect>  */}
+        {/* <Link to={{ pathname: `/goal/${goalId}` }}>
+                <p>Back to Goal</p>
+        </Link> */}
+      {/* </button> */} 
+
       <h1>
         Hi {username}
       </h1>
