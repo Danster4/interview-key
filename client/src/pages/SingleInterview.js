@@ -1,24 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_GOAL } from '../utils/queries';
-// import Auth from '../utils/auth';
-import InterviewList from '../components/InterviewList';
-// import ReactionForm from '../components/ReactionForm';
 
 const SingleInterview = (props) => {
-  // const { _id: goalId } = useParams();
-
-  // const { loading, data } = useQuery(QUERY_GOAL, {
-  //   variables: { id: goalId }
-  // });
 
   const { interview, username } = props.location.state
-
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <div>

@@ -1,17 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_GOALS, QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import GoalList from '../components/GoalList';
 
 import Auth from '../utils/auth';
 import GoalForm from '../components/GoalForm';
 
 const Dashboard = () => {
-  // use useQuery hook to make query request
-  // const { loading, data } = useQuery(QUERY_GOALS);
-  // const goals = data?.goals || [];
-  // console.log(goals);
-
   const loggedIn = Auth.loggedIn();
   
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
@@ -26,11 +21,6 @@ const Dashboard = () => {
           <h2 class="GoalTitle">
             Your Goals
           </h2>
-          {/* {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <GoalList goals={goals} />
-          )} */}
         </div>
 
         {/* userData is undefined in console log, but token is saved in localStorage */}

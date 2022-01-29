@@ -12,7 +12,6 @@ import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleGoal from './pages/SingleGoal';
 import SingleInterview from './pages/SingleInterview';
-import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
@@ -46,11 +45,9 @@ function App() {
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/goal/:id" component={SingleGoal} />
               <Route exact path="/goal/:id/interview/:id" component={SingleInterview} />
 
-            
               <Route component={NoMatch} />
             </Switch>
           </div>

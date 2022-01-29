@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SingleGoal from '../../pages/SingleGoal'
 
 const GoalList = ({ goals, username }) => {
   if (!goals.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Goals Yet</h3>;
   }
 
   return (
@@ -18,7 +17,7 @@ const GoalList = ({ goals, username }) => {
             <div className="card-body">
               <Link to={{ pathname: `/goal/${goal._id}`, state: { goal: goal, username: username } }}>
                 <p>{goal.goalName}</p>
-                <p>Interviews: {goal.interviewCount}</p>
+                <p>Interviews: {goal.interviews.length}</p>
               </Link>
             </div>
           </div>

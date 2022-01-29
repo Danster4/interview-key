@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Goal, Interview } = require('../models');
+const { User, Goal } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -117,20 +117,7 @@ const resolvers = {
     //   throw new AuthenticationError('You need to be logged in!');
     // },
 
-    // addRating: async (parent, { interviewId, rateLocation, ratePeople }, context) => {
-    //   if (context.user) {
-    //     const updatedInterview = await Goal.findOneAndUpdate(
-    //       { _id: interviewId },
-    //       { $push: { interviews: { ratings: { rateLocation, ratePeople } } } },
-    //       { new: true, runValidators: true }
-    //     );
     
-    //     return updatedInterview;
-    //   }
-    
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-
     // addRating: async (parent, { goalId, interviewPosition, interviewLocation, interviewDate, interviewTime }, context) => {
     //   if (context.user) {
     //     const updatedGoal = await Goal.findOneAndUpdate(
@@ -175,51 +162,12 @@ const resolvers = {
     //   throw new AuthenticationError('You need to be logged in!');
     // },
 
-    // addInterview: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const interview = await Interview.create({ ...args, username: context.user.username });
-    
-    //     await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $push: { interviews: interview._id } },
-    //       { new: true }
-    //     );
-    
-    //     return interview;
-    //   }
-    
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
 
 
-    // addInterview: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const updatedGoal = await Goal.findOneAndUpdate(
-    //       { _id: goalId },
-    //       { $push: { interviews: { interviewPosition, username: context.user.username } } },
-    //       { new: true, runValidators: true }
-    //     );
-    
-    //     return updatedThought;
-    //   }
-    
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
 
 
-    // addFriend: async (parent, { friendId }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { friends: friendId } },
-    //       { new: true }
-    //     ).populate('friends');
-    
-    //     return updatedUser;
-    //   }
-    
-    //   throw new AuthenticationError('You need to be logged in!');
-    // }
+
+
   }
 };
 
