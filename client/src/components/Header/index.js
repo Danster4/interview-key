@@ -8,7 +8,7 @@ const Header = () => {
     Auth.logout();
   }
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+    <header className="bg-white mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <h1>Interview Key 🔑 </h1>
