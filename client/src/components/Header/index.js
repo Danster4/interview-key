@@ -12,6 +12,7 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <h1>Interview Key 🔑 </h1>
+          <h5>Track and Follow Your Interviews</h5>
         </Link>
 
         <nav className="text-center">
