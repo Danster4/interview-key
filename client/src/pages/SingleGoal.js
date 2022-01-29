@@ -25,7 +25,7 @@ const SingleGoal = (props) => {
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {username}
+           
           </span>{' '}
           goal created on {goal.createdAt}
         </p>

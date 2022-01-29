@@ -28,12 +28,15 @@ const SingleInterview = (props) => {
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {username}
-          </span>{' '}
+            {interview.interviewPosition} at {interview.interviewLocation}
+          </span>
+          {' '}
           goal created on {interview.createdAt}
         </p>
         <div className="card-body">
-          <p>{interview.interviewPosition}</p>
+          <p>Position: {interview.interviewPosition}</p>
+          <p>Location: {interview.interviewLocation}</p>
+          <p>Interview: {interview.interviewTime} at {interview.interviewDate}</p>
         </div>
       </div>      
     </div>
