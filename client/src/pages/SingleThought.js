@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHT } from '../utils/queries';
 import Auth from '../utils/auth';
 import ReactionList from '../components/ReactionList';
 import ReactionForm from '../components/ReactionForm';

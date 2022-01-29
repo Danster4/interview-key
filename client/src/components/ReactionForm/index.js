@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ADD_REACTION } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 const ReactionForm = ({ thoughtId }) => {
