@@ -3,17 +3,18 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_GOAL } from '../utils/queries';
 // import Auth from '../utils/auth';
-// import InterviewList from '../components/InterviewList';
+import InterviewList from '../components/InterviewList';
 // import ReactionForm from '../components/ReactionForm';
 
 const SingleGoal = props => {
-  const { id: goalId } = useParams();
+  const { _id: goalId } = useParams();
 
   const { loading, data } = useQuery(QUERY_GOAL, {
-    variables: { id: goalId }
+    variables: { _id: goalId }
   });
 
   const goal = data?.goal || {};
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -33,7 +34,7 @@ const SingleGoal = props => {
         </div>
       </div>
 
-      {/* {goal.interviewCount > 0 && <InterviewList interviews={goal.interviews} />} */}
+      {/* {goal.interviewCount > 0 && <InterviewList interviews={interviews} />} */}
       
     </div>
 

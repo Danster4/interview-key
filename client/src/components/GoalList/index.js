@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SingleGoal from '../../pages/SingleGoal'
 
 const GoalList = ({ goals }) => {
   if (!goals.length) {
@@ -12,7 +13,6 @@ const GoalList = ({ goals }) => {
       {goals &&
         goals.map(goal => (
           <div key={goal._id} className="card mb-3">
-            
             <div className="card-body">
               <Link to={`/goal/${goal._id}`}>
                 <p>{goal.goalName}</p>
