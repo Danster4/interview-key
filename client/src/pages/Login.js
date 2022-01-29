@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import 'bulma/css/bulma.css';
+//import 'bulma/css/bulma-2.css';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
