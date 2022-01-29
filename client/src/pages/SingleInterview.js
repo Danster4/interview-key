@@ -6,14 +6,14 @@ import { QUERY_GOAL } from '../utils/queries';
 import InterviewList from '../components/InterviewList';
 // import ReactionForm from '../components/ReactionForm';
 
-const SingleGoal = (props) => {
-  const { _id: goalId } = useParams();
+const SingleInterview = (props) => {
+  // const { _id: goalId } = useParams();
 
   // const { loading, data } = useQuery(QUERY_GOAL, {
   //   variables: { id: goalId }
   // });
 
-  const { goal, username } = props.location.state
+  const { interview, username } = props.location.state
 
 
   // if (loading) {
@@ -22,24 +22,24 @@ const SingleGoal = (props) => {
 
   return (
     <div>
+      <h1>
+        Hi {username}
+      </h1>
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {username}
           </span>{' '}
-          goal created on {goal.createdAt}
+          goal created on {interview.createdAt}
         </p>
         <div className="card-body">
-          <p>{goal.goalName}</p>
+          <p>{interview.interviewPosition}</p>
         </div>
-      </div>
-
-      {goal.interviewCount > 0 && <InterviewList interviews={goal.interviews} username={username} goalId={goal._id}/>}
-      
+      </div>      
     </div>
 
     
   );
 };
 
-export default SingleGoal;
+export default SingleInterview;

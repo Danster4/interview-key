@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleGoal from './pages/SingleGoal';
+import SingleInterview from './pages/SingleInterview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
@@ -47,6 +48,8 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/goal/:id" component={SingleGoal} />
+              <Route exact path="/goal/:id/interview/:id" component={SingleInterview} />
+
             
               <Route component={NoMatch} />
             </Switch>

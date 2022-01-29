@@ -8,15 +8,16 @@ import GoalForm from '../components/GoalForm';
 
 const Dashboard = () => {
   // use useQuery hook to make query request
-  const { loading, data } = useQuery(QUERY_GOALS);
-  const goals = data?.goals || [];
-  console.log(goals);
+  // const { loading, data } = useQuery(QUERY_GOALS);
+  // const goals = data?.goals || [];
+  // console.log(goals);
 
   const loggedIn = Auth.loggedIn();
   
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery(QUERY_ME);
   console.log(userData);
+
   return (
     <main>
       <div className='flex-row justify-space-between'>
@@ -25,11 +26,11 @@ const Dashboard = () => {
           <h2 class="GoalTitle">
             Your Goals
           </h2>
-          {loading ? (
+          {/* {loading ? (
             <div>Loading...</div>
           ) : (
             <GoalList goals={goals} />
-          )}
+          )} */}
         </div>
 
         {/* userData is undefined in console log, but token is saved in localStorage */}
@@ -37,6 +38,7 @@ const Dashboard = () => {
           <div className="col-12 col-lg-3 mb-3">
             <GoalList
               goals={userData.me.goals}
+              username={userData.me.username}
             />
           </div>
         ) : null}
