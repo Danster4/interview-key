@@ -32,13 +32,14 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* { userData ? (
+        {/* userData is undefined in console log, but token is saved in localStorage */}
+        {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <GoalList
               goals={userData.me.goals}
             />
           </div>
-        ) : null} */}
+        ) : null}
         
           <div className="col-12 mb-3">
             <GoalForm />
