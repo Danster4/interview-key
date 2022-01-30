@@ -43,35 +43,47 @@ const Welcome = (props) => {
   }
 
   return (
-    <main className='justify-center mb-4'>
-      <h1 className='col-12'>Welcome to Interview Key!</h1>
-      <div className='col-12 col-md-6'>
+    <main className='columns is-multiline'>
+      <h1 className='column is-full'>Welcome to Interview Key!</h1>
+      <div className='column is-half'>
         <div className='card'>
-          <h4 className='card-header'>Login</h4>
-          <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
+          <h4 className='card-header card-header-title'>Login</h4>
+          <div className='card-content'>
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input
+                  className='input'
+                  placeholder='Your email'
+                  name='email'
+                  type='email'
+                  id='email'
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input
+                  className='input'
+                  placeholder='******'
+                  name='password'
+                  type='password'
+                  id='password'
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+            </div>
             {error && <div>Login failed</div>}
           </div>
         </div>
