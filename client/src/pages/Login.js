@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -38,34 +39,50 @@ const Login = (props) => {
   };
 
   return (
-    <main className='flex-row justify-center mb-4'>
-      <div className='col-12 col-md-6'>
+    <main className='columns is-multiline is-centered'>
+      <div className='column is-6'>
         <div className='card'>
-          <h4 className='card-header'>Login</h4>
-          <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
+          <h4 className='card-header card-header-title'>Login</h4>
+          <div className='card-content'>
+            <div class="field">
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  className='input'
+                  placeholder='Email'
+                  name='email'
+                  type='email'
+                  id='email'
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <span class="icon is-small is-left">
+                  <FontAwesomeIcon icon={['fas', 'envelope']} />
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  className='input'
+                  placeholder='Password'
+                  name='password'
+                  type='password'
+                  id='password'
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <span class="icon is-small is-left">
+                  <FontAwesomeIcon icon={['fas', 'lock']} />
+                </span>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+            </div>
             {error && <div>Login failed</div>}
           </div>
         </div>

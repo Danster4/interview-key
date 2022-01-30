@@ -9,9 +9,9 @@ const Header = () => {
   }
   return (
     <header>
-      <div className="navbar">
+      <div className="navbar is-info">
         <Link className='navbar-brand' to="/">
-          <h1 className='navbar-item'>Interview Key</h1>
+          <h1 className='navbar-item content is-medium'>Interview Key</h1>
         </Link>
 
         <nav className='navbar-end'>

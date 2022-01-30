@@ -2,6 +2,8 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -13,6 +15,8 @@ import NoMatch from './pages/NoMatch';
 import SingleGoal from './pages/SingleGoal';
 import SingleInterview from './pages/SingleInterview';
 import Signup from './pages/Signup';
+
+library.add(fas)
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,9 +41,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="">
           <Header />
-          <div className="container">
+          <div className="main">
             <Switch>
               <Route exact path="/" component={Welcome} />
               <Route exact path="/dashboard" component={Dashboard} />
