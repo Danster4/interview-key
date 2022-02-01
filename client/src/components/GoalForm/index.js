@@ -13,7 +13,7 @@ const GoalForm = () => {
         // read what's currently in the cache
         const { goals } = cache.readQuery({ query: QUERY_GOALS });
 
-        // prepend the newest thought to the front of the array
+        // prepend the newest goal to the front of the array
         cache.writeQuery({
           query: QUERY_GOALS,
           data: { goals: [addGoal, ...goals] }
@@ -22,7 +22,7 @@ const GoalForm = () => {
         console.error(e)
       }
 
-      // update me object's cache, appending new thought to the end of the array
+      // update me object's cache, appending new goal to the end of the array
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({ 
         query: QUERY_ME,
