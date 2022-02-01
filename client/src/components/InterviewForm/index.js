@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ADD_INTERVIEW } from '../../utils/mutations';
+import { QUERY_INTERVIEWS, QUERY_ME } from '../../utils/queries';
+
 import { useMutation } from '@apollo/client';
 
 const InterviewForm = ({ goalId }) => {
@@ -7,6 +9,7 @@ const InterviewForm = ({ goalId }) => {
   const [interviewLocation, setLocation] = useState('');
   const [interviewTime, setTime] = useState('');
   const [interviewDate, setDate] = useState('');
+  
   const [addInterview, { error }] = useMutation(ADD_INTERVIEW);
 
 
@@ -100,3 +103,28 @@ const InterviewForm = ({ goalId }) => {
 };
 
 export default InterviewForm;
+
+
+// const [addInterview, { error }] = useMutation(ADD_INTERVIEW, {
+//   update(cache, { data: { addInterview } }) {
+//     try {
+//       // read what's currently in the cache
+//       const { interviews } = cache.readQuery({ query: QUERY_INTERVIEWS });
+
+//       // prepend the newest thought to the front of the array
+//       cache.writeQuery({
+//         query: QUERY_INTERVIEWS,
+//         data: { interviews: [addInterview, ...interviews] }
+//       });
+//     } catch (e) {
+//       console.error(e)
+//     }
+
+//     // update me object's cache, appending new thought to the end of the array
+//     const { me } = cache.readQuery({ query: QUERY_ME });
+//     cache.writeQuery({ 
+//       query: QUERY_ME,
+//       data: { me: { ...me.goals, interviews: [...me.goals.interviews, addInterview] } }
+//     });
+//   }
+// });
