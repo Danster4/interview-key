@@ -51,3 +51,12 @@ export const ADD_INTERVIEW = gql`
     }
   }
 `;
+
+export const REMOVE_GOAL = gql`
+  mutation removeGoal($goalId: ID!) {
+    removeGoal(goalId: $goalId) {
+      _id
+      goalName
+    } 
+  }
+`;
