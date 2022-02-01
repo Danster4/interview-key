@@ -60,7 +60,7 @@ const typeDefs = gql`
     addGoal(goalName: String!): Goal
     addInterview(goalId: ID, interviewPosition: String!, interviewLocation: String!, interviewDate: String!, interviewTime: String!): Goal
     removeGoal(goalId: ID!): Goal
-    removeInterview(goalId: ID!, interviewId: ID!): Goal
+    removeInterview(goalId: ID, _id: ID!): Goal
   }
 `;
 

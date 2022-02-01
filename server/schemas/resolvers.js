@@ -115,6 +115,20 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    removeInterview: async (parent, { goalId, _id }, context) => {
+      if (context.user) {
+        const updatedGoal = await Goal.findOneAndUpdate(
+          { _id: goalId },
+          { $pull: { interviews: { _id } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedGoal;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
     // removeInterview: async (parent, { goalId, interviewId }, context) => {
     //   if (context.user) {
     //     const updatedGoal = await Goal.findOneAndUpdate(
