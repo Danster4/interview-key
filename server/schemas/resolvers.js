@@ -103,6 +103,32 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    removeGoal: async (parent, { goalId }, context) => {
+      if (context.user) {
+        const deletedGoal = await Goal.findOneAndDelete(
+          { _id: goalId }
+        );
+    
+        return deletedGoal;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // removeInterview: async (parent, { goalId, interviewId }, context) => {
+    //   if (context.user) {
+    //     const updatedGoal = await Goal.findOneAndUpdate(
+    //       { _id: goal._id },
+    //       { $pull: { interviews: { interviewId } } },
+    //       { new: true }
+    //     );
+    
+    //     return updatedGoal;
+    //   }
+    
+    //   throw new AuthenticationError('You need to be logged in!');
+    // }
+
     // addRating: async (parent, { interviewId, rateLocation, ratePeople }, context) => {
     //   if (context.user) {
     //     const updatedInterview = await Interview.findOneAndUpdate(

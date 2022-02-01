@@ -59,7 +59,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addGoal(goalName: String!): Goal
     addInterview(goalId: ID, interviewPosition: String!, interviewLocation: String!, interviewDate: String!, interviewTime: String!): Goal
-    addRating(interviewId: ID!, rateLocation: Int, ratePeople: String): Interview
+    removeGoal(goalId: ID!): Goal
+    removeInterview(goalId: ID!, interviewId: ID!): Goal
   }
 `;
 
