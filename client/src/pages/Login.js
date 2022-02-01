@@ -43,7 +43,7 @@ const Login = (props) => {
       <div className='column is-6'>
         <div className='card'>
           <h4 className='card-header card-header-title'>Login</h4>
-          <div className='card-content'>
+          <form className='card-content' onSubmit={handleFormSubmit}>
             <div class="field">
               <div class="control has-icons-left has-icons-right">
                 <input
@@ -80,11 +80,11 @@ const Login = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button type="submit" class="button is-link">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}
-          </div>
+          </form>
         </div>
       </div>
     </main>
