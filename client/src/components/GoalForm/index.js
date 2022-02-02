@@ -63,16 +63,16 @@ const GoalForm = () => {
         {error && <span className='ml-2'>Something went wrong...</span>}
       </p>
       <form 
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="card-header card-header-title is-centered"
         onSubmit={handleFormSubmit}
       >
         <textarea 
           placeholder="Here's a new goal..."
           value={goalName}
-          className="form-input is-info"
+          className="input is-info is-medium"
           onChange={handleChange}
         ></textarea>
-        <button className="button is-info" type="submit">
+        <button className="button is-info is-medium" type="submit">
           Submit
         </button>
       </form>

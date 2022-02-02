@@ -92,28 +92,28 @@ const InterviewForm = ({ goalId }) => {
         <textarea
           placeholder="What is the interview position..."
           value={interviewPosition}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange}
         ></textarea>
 
         <textarea
           placeholder="Where is the interview location..."
           value={interviewLocation}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange2}
         ></textarea>
 
         <textarea
           placeholder="When is the interview time..."
           value={interviewTime}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange3}
         ></textarea>
 
         <textarea
           placeholder="When is the interview date..."
           value={interviewDate}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange4}
         ></textarea>
 
