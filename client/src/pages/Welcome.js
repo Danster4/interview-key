@@ -51,7 +51,7 @@ const Welcome = (props) => {
       <div className='column is-6'>
         <div className='card'>
           <h4 className='card-header card-header-title'>Login</h4>
-          <div className='card-content'>
+          <form className='card-content' onSubmit={handleFormSubmit}>
             <div class="field">
               <div class="control has-icons-left has-icons-right">
                 <input
@@ -92,7 +92,7 @@ const Welcome = (props) => {
               </div>
             </div>
             {error && <div>Login failed</div>}
-          </div>
+          </form>
         </div>
       </div>
     </main>
