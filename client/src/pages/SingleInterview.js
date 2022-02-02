@@ -1,9 +1,46 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { REMOVE_INTERVIEW } from '../utils/mutations';
+import Auth from '../utils/auth';
+
 
 const SingleInterview = (props) => {
+  
 
   const { interview, username, goalId } = props.location.state
+  
+  const url = `/goal/${goalId}/interview/${interview._id}`;
+  const interviewId = url.substring(url.lastIndexOf('/') + 1);
+  console.log(interviewId);
+
+  const _id = interview._id
+
+  const [removeInterview] = useMutation(REMOVE_INTERVIEW);
+
+  const handleDeleteInterview = async (goalId, _id) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await removeInterview({
+        variables: { goalId, _id },
+        update(cache) {
+          const normalizedId = cache.identify({ _id, __typename: 'Goal' });
+          cache.evict({ _id: normalizedId });
+          cache.gc();
+        }
+      });
+
+      <Redirect to="/dashboard" />
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
@@ -32,6 +69,9 @@ const SingleInterview = (props) => {
           <p>Position: {interview.interviewPosition}</p>
           <p>Location: {interview.interviewLocation}</p>
           <p>Interview: {interview.interviewTime} at {interview.interviewDate}</p>
+          <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
+            Delete this Interview!
+          </button>
         </div>
       </div>      
     </div>
