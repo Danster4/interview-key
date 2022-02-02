@@ -63,7 +63,7 @@ const GoalForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea 
-          placeholder="Here's a new goal..."
+          placeholder="Add Job Title"
           value={goalName}
           className="input is-info is-medium is-hover"
           onChange={handleChange}
