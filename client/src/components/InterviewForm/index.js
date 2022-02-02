@@ -3,6 +3,7 @@ import { ADD_INTERVIEW } from '../../utils/mutations';
 import { QUERY_INTERVIEWS, QUERY_ME, QUERY_GOALS } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 
+
 const InterviewForm = ({ goalId }) => {
   const [interviewPosition, setPosition] = useState('');
   const [interviewLocation, setLocation] = useState('');

@@ -42,7 +42,7 @@ const Login = (props) => {
     <main className='columns is-multiline is-centered'>
       <div className='column is-6'>
         <div className='card'>
-          <h4 className='card-header card-header-title'>Login</h4>
+          <h4 className='card-header card-header-title is-centered'>Login</h4>
           <form className='card-content' onSubmit={handleFormSubmit}>
             <div class="field">
               <div class="control has-icons-left has-icons-right">

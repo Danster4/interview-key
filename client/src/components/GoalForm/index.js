@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ADD_GOAL } from '../../utils/mutations';
 import { QUERY_GOALS, QUERY_ME } from '../../utils/queries';
 
+
 const GoalForm = () => {
   const [goalName, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
@@ -65,7 +66,7 @@ const GoalForm = () => {
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-        <textarea
+        <textarea 
           placeholder="Here's a new goal..."
           value={goalName}
           className="form-input col-12 col-md-9"
