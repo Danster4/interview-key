@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ADD_INTERVIEW } from '../../utils/mutations';
-import { QUERY_INTERVIEWS, QUERY_ME } from '../../utils/queries';
+import { QUERY_INTERVIEWS, QUERY_ME, QUERY_GOALS } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 
 const InterviewForm = ({ goalId }) => {
@@ -10,7 +10,30 @@ const InterviewForm = ({ goalId }) => {
   const [interviewDate, setDate] = useState('');
   
   // addInterview Cache additional needed here
-  const [addInterview, { error }] = useMutation(ADD_INTERVIEW);
+  const [addInterview, { error }] = useMutation(ADD_INTERVIEW, {
+    update(cache, { data: { addGoal } }) {
+      try {
+        // read what's currently in the cache
+        const { goals } = cache.readQuery({ query: QUERY_GOALS });
+
+        console.log(goals)
+        // prepend the newest goal to the front of the array
+        // cache.writeQuery({
+        //   query: QUERY_GOALS,
+        //   data: { goals: [addGoal, ...goals] }
+        // });
+      } catch (e) {
+        console.error(e)
+      }
+
+      // update me object's cache, appending new goal to the end of the array
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({ 
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, goals: [...me.goals, addGoal] } }
+      // });
+    }
+  });
 
   const handleChange = event => {
     if (event.target.value.length <= 280) {

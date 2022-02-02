@@ -5,7 +5,6 @@ import { REMOVE_INTERVIEW } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 
-
 const SingleInterview = (props) => {
   
 
@@ -29,11 +28,11 @@ const SingleInterview = (props) => {
     try {
       await removeInterview({
         variables: { goalId, _id },
-        // update(cache) {
-        //   const normalizedId = cache.identify({ _id, __typename: 'Goal' });
-        //   cache.evict({ _id: normalizedId });
-        //   cache.gc();
-        // }
+        update(cache) {
+          const normalizedId = cache.identify({ _id, __typename: 'Goal' });
+          cache.evict({ _id: normalizedId });
+          cache.gc();
+        }
       });
 
       <Redirect to="/dashboard" />
@@ -70,7 +69,7 @@ const SingleInterview = (props) => {
           <p>Position: {interview.interviewPosition}</p>
           <p>Location: {interview.interviewLocation}</p>
           <p>Interview: {interview.interviewTime} at {interview.interviewDate}</p>
-          <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(interview._id)}>
+          <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
             Delete this Interview!
           </button>
         </div>
