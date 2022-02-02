@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -37,6 +38,10 @@ const Login = (props) => {
       password: '',
     });
   };
+
+  if (Auth.loggedIn()) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <main className='columns is-multiline is-centered'>

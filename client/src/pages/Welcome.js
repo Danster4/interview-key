@@ -39,6 +39,10 @@ const Welcome = (props) => {
     });
   };
 
+  if (Auth.loggedIn()) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <main className='section is-multiline'>
       <h1 className='column is-12 content is-large'>
