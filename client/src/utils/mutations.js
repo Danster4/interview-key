@@ -51,3 +51,30 @@ export const ADD_INTERVIEW = gql`
     }
   }
 `;
+
+export const REMOVE_GOAL = gql`
+  mutation removeGoal($goalId: ID!) {
+    removeGoal(goalId: $goalId) {
+      _id
+      goalName
+    } 
+  }
+`;
+
+export const REMOVE_INTERVIEW = gql`
+  mutation removeInterview($goalId: ID!, $_id: ID!) {
+    removeInterview(goalId: $goalId, _id: $_id) {
+      _id
+      goalName
+      username
+        interviewCount
+      interviews {
+        _id
+        interviewPosition,
+        interviewLocation,
+        interviewTime,
+        interviewDate
+      } 
+    }
+  }
+`;

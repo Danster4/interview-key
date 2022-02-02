@@ -6,7 +6,6 @@ export const QUERY_ME = gql`
       _id
       username
       email 
-      goalCount
       goals {
         _id
         goalName

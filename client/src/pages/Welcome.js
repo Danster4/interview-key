@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Login = (props) => {
+const Welcome = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -37,9 +38,16 @@ const Login = (props) => {
       password: '',
     });
   };
+  
+  if (Auth.loggedIn()) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
-    <main className='columns is-multiline is-centered'>
+    <main className='section is-multiline'>
+      <h1 className='column is-12 content is-large'>
+        <strong>Welcome to Interview Key!</strong>
+        </h1>
       <div className='column is-6'>
         <div className='card'>
           <h4 className='card-header card-header-title'>Login</h4>
@@ -80,7 +88,7 @@ const Login = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button type="submit" class="button is-link">Submit</button>
+                <button class="button is-link" type="submit">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}
@@ -91,4 +99,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Welcome;
