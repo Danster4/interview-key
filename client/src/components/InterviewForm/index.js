@@ -117,7 +117,7 @@ const InterviewForm = ({ goalId }) => {
           onChange={handleChange4}
         ></textarea>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="button is-info" type="submit">
           Submit
         </button>
       </form>

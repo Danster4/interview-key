@@ -80,7 +80,7 @@ const Login = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button type="submit" class="button is-link">Submit</button>
+                <button type="submit" class="button is-info">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}

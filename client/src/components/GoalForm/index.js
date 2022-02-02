@@ -69,10 +69,10 @@ const GoalForm = () => {
         <textarea 
           placeholder="Here's a new goal..."
           value={goalName}
-          className="form-input col-12 col-md-9"
+          className="form-input is-info"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="button is-info" type="submit">
           Submit
         </button>
       </form>
