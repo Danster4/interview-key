@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 
-const GoalList = ({ goals, username }) => {
+const GoalList = ({ goals, username  }) => {
+  // const { goals, username } = userData;
 
   const [removeGoal] = useMutation(REMOVE_GOAL);
 
@@ -32,7 +33,7 @@ const GoalList = ({ goals, username }) => {
         }
       });
 
-      <Redirect to="/dashboard" />
+      // setUserData(userData.goals.filter(el => el !== goalId));
 
     } catch (err) {
       console.error(err);

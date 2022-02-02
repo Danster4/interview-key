@@ -2,7 +2,6 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const interviewSchema = require('./Interview');
 
-
 const goalSchema = new Schema(
   {
     goalName: {

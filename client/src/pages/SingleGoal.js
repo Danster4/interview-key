@@ -4,7 +4,7 @@ import InterviewForm from '../components/InterviewForm';
 
 const SingleGoal = (props) => {
   const { goal, username } = props.location.state
-
+console.log(goal.interviews)
   return (
     <div>
       <div className="card mb-3">

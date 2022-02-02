@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import GoalList from '../components/GoalList';
@@ -11,7 +11,8 @@ const Dashboard = () => {
   
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery(QUERY_ME);
-  console.log(userData);
+
+  // const [userData, setUserData] = useState(data)
 
   return (
     <main>
@@ -29,6 +30,8 @@ const Dashboard = () => {
             <GoalList
               goals={userData.me.goals}
               username={userData.me.username}
+              // setUserData={setUserData}
+              // userData={userData}
             />
           </div>
         ) : null}
