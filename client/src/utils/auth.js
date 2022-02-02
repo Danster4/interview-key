@@ -38,8 +38,10 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
+    return (
+      <Redirect to="/dashboard" />
+    )
     
-    <Redirect to="/dashboard" />
     // window.location.assign('/dashboard');
   }
 
