@@ -8,24 +8,24 @@ const Header = () => {
     Auth.logout();
   }
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>Deep Thoughts</h1>
+    <header>
+      <div className="navbar is-info">
+        <Link className='navbar-brand' to="/">
+          <h1 className='navbar-item content is-medium'>Interview Key</h1>
         </Link>
 
-        <nav className="text-center">
+        <nav className='navbar-end'>
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile">Me</Link>
+              <Link to="/dashboard">Dashboard</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link className='navbar-item' to="/login">Login</Link>
+              <Link className='navbar-item' to="/signup">Signup</Link>
             </>
           )}
         </nav>
