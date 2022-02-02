@@ -114,7 +114,7 @@ export const QUERY_GOAL = gql `
 `;
 
 export const QUERY_INTERVIEWS = gql`
-  query interviews($goalId: ID!) {
+  query goals($goalId: ID!) {
     interviews(_id: $goalId) {
       _id
       interviewPosition
