@@ -38,10 +38,6 @@ const Welcome = (props) => {
       password: '',
     });
   };
-  
-  if (Auth.loggedIn()) {
-    return <Redirect to="/dashboard" />;
-  }
 
   return (
     <main className='section is-multiline'>
