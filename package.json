@@ -25,6 +25,7 @@
     "concurrently": "^7.0.0"
   },
   "dependencies": {
+    "react": "^17.0.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.1"
   }
