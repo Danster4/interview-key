@@ -12,7 +12,7 @@ const SingleGoal = (props) => {
           <span style={{ fontWeight: 700 }} className="text-light">
            
           </span>{' '}
-          this goal was created on {goal.createdAt}
+          This goal was created on {goal.createdAt}
         </p>
         <div className="card-body">
           <p>{goal.goalName}</p>
