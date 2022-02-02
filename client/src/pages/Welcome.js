@@ -88,7 +88,7 @@ const Welcome = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button class="button is-link" type="submit">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}
