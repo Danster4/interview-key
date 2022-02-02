@@ -55,7 +55,7 @@ const Login = (props) => {
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
+                <span class="icon is-medium is-left">
                   <FontAwesomeIcon icon={['fas', 'envelope']} />
                 </span>
               </div>
@@ -72,7 +72,7 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
+                <span class="icon is-medium is-left">
                   <FontAwesomeIcon icon={['fas', 'lock']} />
                 </span>
               </div>

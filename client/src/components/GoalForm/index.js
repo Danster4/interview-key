@@ -58,24 +58,25 @@ const GoalForm = () => {
 
   return (
     <div>
-      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
-        {error && <span className='ml-2'>Something went wrong...</span>}
-      </p>
-      <form 
+    <form 
         className="card-header card-header-title is-centered"
         onSubmit={handleFormSubmit}
       >
         <textarea 
           placeholder="Here's a new goal..."
           value={goalName}
-          className="input is-info is-medium"
+          className="input is-info is-medium is-hover"
           onChange={handleChange}
         ></textarea>
-        <button className="button is-info is-medium" type="submit">
+        <button className="button is-info" type="submit">
           Submit
         </button>
       </form>
+      
+      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
+        Character Count: {characterCount}/280
+        {error && <span className='ml-2'>Something went wrong...</span>}
+      </p>
     </div>
   );
 };

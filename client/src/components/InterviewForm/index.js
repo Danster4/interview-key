@@ -86,7 +86,7 @@ const InterviewForm = ({ goalId }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form 
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="card-header card-header-title is-centered"
         onSubmit={handleFormSubmit}
       >
         <textarea
