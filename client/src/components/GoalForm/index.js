@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ADD_GOAL } from '../../utils/mutations';
 import { QUERY_GOALS, QUERY_ME } from '../../utils/queries';
 
+
 const GoalForm = () => {
   const [goalName, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
@@ -57,24 +58,25 @@ const GoalForm = () => {
 
   return (
     <div>
+    <form 
+        className="card-header card-header-title is-centered"
+        onSubmit={handleFormSubmit}
+      >
+        <textarea 
+          placeholder="Add Job Title"
+          value={goalName}
+          className="input is-info is-medium is-hover"
+          onChange={handleChange}
+        ></textarea>
+        <button className="button is-info" type="submit">
+          Submit
+        </button>
+      </form>
+      
       <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
         {error && <span className='ml-2'>Something went wrong...</span>}
       </p>
-      <form 
-        className="flex-row justify-center justify-space-between-md align-stretch"
-        onSubmit={handleFormSubmit}
-      >
-        <textarea
-          placeholder="Here's a new goal..."
-          value={goalName}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-      </form>
     </div>
   );
 };
