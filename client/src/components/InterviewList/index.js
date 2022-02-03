@@ -5,14 +5,14 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_INTERVIEW } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-const InterviewList = ({interviews, username, goalId}) => {
+const InterviewList = ({ interviews, username, goalId }) => {
 
   const [removeInterview] = useMutation(REMOVE_INTERVIEW);
   // var url = `/goal/${goalId}`;
   // var goalId = url.substring(url.lastIndexOf('/') + 1);
   // alert(goalId);
 
-  if (!interviews || !interviews.length ) {
+  if (!interviews || !interviews.length) {
     return <p className='bg-dark text-light p-3'>{username}, set up some interviews!</p>;
   }
 
@@ -41,28 +41,67 @@ const InterviewList = ({interviews, username, goalId}) => {
   };
   return (
     <div>
-    
-      
+
+
       <h5>
         You have {interviews.length} {interviews.length === 1 ? 'interview' : 'interviews'}
       </h5>
 
       {interviews.map(interview => (
 
-        <button className="btn w-100 display-block mb-2" key={interview._id}>
+        /*{/*<button className="btn w-100 display-block mb-2" key={interview._id}>
           <Link to={{ pathname: `/goal/${goalId}/interview/${interview._id}`, state: { goalId: goalId, interview: interview, username: username } }}>
             <h2>{interview.interviewPosition}
-              <br /> 
-              at {interview.interviewLocation}</h2> 
+              <br />
+              at {interview.interviewLocation}</h2>
           </Link>
           <button className='button is-info' onClick={() => handleDeleteInterview(goalId, interview._id)}>
             Delete this Interview!
           </button>
-        </button>
-      ))}
+        </button>*/
+
+          < div key = { interview._id } class= "box" >
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                {/*<img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"></img>*/}
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                {/*<p>
+                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                </p>*/}
+
+                <Link to={{ pathname: `/goal/${goalId}/interview/${interview._id}`, state: { goalId: goalId, interview: interview, username: username } }}>
+                  <h2>{interview.interviewPosition}
+                    <br />
+                    at {interview.interviewLocation}</h2>
+                </Link>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="reply">
+                    <a>
+                      <i class="fa fa-trash" aria-hidden="true" onClick={() => handleDeleteInterview(goalId, interview._id)}></i>
+                    </a>
+                    
+                  </a>
 
 
-    </div>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+
+
+  ))
+};
+
+    </div >
   );
 };
 

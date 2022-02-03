@@ -9,7 +9,7 @@ const InterviewForm = ({ goalId }) => {
   const [interviewLocation, setLocation] = useState('');
   const [interviewTime, setTime] = useState('');
   const [interviewDate, setDate] = useState('');
-  
+
   // addInterview Cache additional needed here
   const [addInterview, { error }] = useMutation(ADD_INTERVIEW, {
     update(cache, { data: { addGoal } }) {
@@ -66,7 +66,7 @@ const InterviewForm = ({ goalId }) => {
     try {
       // add thought to database
       await addInterview({
-        variables: {goalId, interviewPosition, interviewLocation, interviewTime, interviewDate}
+        variables: { goalId, interviewPosition, interviewLocation, interviewTime, interviewDate }
       });
 
       // clear form value
@@ -82,7 +82,7 @@ const InterviewForm = ({ goalId }) => {
   return (
     <div>
       <p className={`m-0 error ? 'text-error' : ''}`}>
-        
+
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form 
@@ -145,7 +145,7 @@ export default InterviewForm;
 
 //     // update me object's cache, appending new thought to the end of the array
 //     const { me } = cache.readQuery({ query: QUERY_ME });
-//     cache.writeQuery({ 
+//     cache.writeQuery({
 //       query: QUERY_ME,
 //       data: { me: { ...me.goals, interviews: [...me.goals.interviews, addInterview] } }
 //     });
@@ -170,7 +170,7 @@ export default InterviewForm;
 
 //     // update me object's cache, appending new interview to the end of the array
 //     const { me } = cache.readQuery({ query: QUERY_ME });
-//     cache.writeQuery({ 
+//     cache.writeQuery({
 //       query: QUERY_ME,
 //       data: { me: { goals: {interviews: [...me.goals.interviews, addInterview]} } }
 //     });
