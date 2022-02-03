@@ -41,7 +41,7 @@ const GoalList = ({ goals, username }) => {
 
   return (
     <div>
-      <h1>
+      <h1 className='is-size-4 has-text-centered'>
         Hi, {username}!
       </h1>
       {goals &&

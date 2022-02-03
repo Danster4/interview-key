@@ -40,10 +40,10 @@ const InterviewList = ({ interviews, username, goalId }) => {
     }
   };
   return (
-    <div>
+    <div className='is-centered'>
 
 
-      <h5>
+      <h5 className='is-size-5 has-text-centered'>
         You have {interviews.length} {interviews.length === 1 ? 'interview' : 'interviews'}
       </h5>
 
@@ -60,7 +60,7 @@ const InterviewList = ({ interviews, username, goalId }) => {
           </button>
         </button>*/
 
-          < div key = { interview._id } class= "box" >
+          <div key = { interview._id } class= "box is-centered" >
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">

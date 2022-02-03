@@ -15,10 +15,10 @@ const Dashboard = () => {
 
   return (
     <main>
-      <div className='flex-row justify-space-between'>
+      <div className=''>
 
         <div className={`col-12 mb-3`}>
-          <h2 class="GoalTitle">
+          <h2 class="GoalTitle is-size-3 has-text-centered">
             Your Positions
           </h2>
         </div>
