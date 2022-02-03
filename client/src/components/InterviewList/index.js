@@ -55,7 +55,7 @@ const InterviewList = ({interviews, username, goalId}) => {
               <br /> 
               at {interview.interviewLocation}</h2> 
           </Link>
-          <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
+          <button className='button is-info' onClick={() => handleDeleteInterview(goalId, interview._id)}>
             Delete this Interview!
           </button>
         </button>

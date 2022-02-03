@@ -42,7 +42,7 @@ const Login = (props) => {
     <main className='columns is-multiline is-centered'>
       <div className='column is-6'>
         <div className='card'>
-          <h4 className='card-header card-header-title'>Login</h4>
+          <h4 className='card-header card-header-title is-centered'>Login</h4>
           <form className='card-content' onSubmit={handleFormSubmit}>
             <div class="field">
               <div class="control has-icons-left has-icons-right">
@@ -55,7 +55,7 @@ const Login = (props) => {
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
+                <span class="icon is-medium is-left">
                   <FontAwesomeIcon icon={['fas', 'envelope']} />
                 </span>
               </div>
@@ -72,7 +72,7 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
+                <span class="icon is-medium is-left">
                   <FontAwesomeIcon icon={['fas', 'lock']} />
                 </span>
               </div>
@@ -80,7 +80,7 @@ const Login = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button type="submit" class="button is-link">Submit</button>
+                <button type="submit" class="button is-info">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}

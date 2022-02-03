@@ -3,6 +3,7 @@ import { ADD_INTERVIEW } from '../../utils/mutations';
 import { QUERY_INTERVIEWS, QUERY_ME, QUERY_GOALS } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 
+
 const InterviewForm = ({ goalId }) => {
   const [interviewPosition, setPosition] = useState('');
   const [interviewLocation, setLocation] = useState('');
@@ -85,38 +86,38 @@ const InterviewForm = ({ goalId }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form 
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="card-header card-header-title is-centered"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="What is the interview position..."
+          placeholder="Company"
           value={interviewPosition}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange}
         ></textarea>
 
         <textarea
-          placeholder="Where is the interview location..."
+          placeholder="Location"
           value={interviewLocation}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange2}
         ></textarea>
 
         <textarea
-          placeholder="When is the interview time..."
+          placeholder="Time"
           value={interviewTime}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange3}
         ></textarea>
 
         <textarea
-          placeholder="When is the interview date..."
+          placeholder="Date"
           value={interviewDate}
-          className="form-input col-12 col-md-9"
+          className="input is-info is-medium"
           onChange={handleChange4}
         ></textarea>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="button is-info" type="submit">
           Submit
         </button>
       </form>
