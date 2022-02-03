@@ -71,6 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Application Deployment:
 
-Heroku: 
-GitHub Repo: https://github.com/Danster4/interview-key/tree/main
+- [Heroku](https://morning-coast-83495.herokuapp.com 'Heroku') 
+- [GitHub Repo](https://github.com/Danster4/interview-key/tree/main 'GitHub Repo')
 
