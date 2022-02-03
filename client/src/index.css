@@ -9,3 +9,14 @@
 .section {
   flex: 1;
 }
+
+.input-80 {
+  width: 100%;
+}
+
+.form-center {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  justify-content: center;
+}

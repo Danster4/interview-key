@@ -45,9 +45,9 @@ const Welcome = (props) => {
 
   return (
     <main className='columns is-multiline is-centered'>
-      <h1 className='column is-12 content is-large is-centered'>
+      <h1 className='column is-12 content is-large has-text-centered is-centered'>
         <strong>Welcome to Interview Key!</strong>
-        </h1>
+      </h1>
       <div className='column is-6'>
         <div className='card'>
           <h4 className='card-header card-header-title'>Login</h4>
