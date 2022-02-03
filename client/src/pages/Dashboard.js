@@ -19,7 +19,7 @@ const Dashboard = () => {
         
         <div className={`col-12 mb-3`}>
           <h2 class="GoalTitle">
-            Your Goals
+            Your Positions
           </h2>
         </div>
 
@@ -33,7 +33,8 @@ const Dashboard = () => {
           </div>
         ) : null}
         
-          <div className="col-12 mb-3">
+          <div className="card">
+          <h4 className='card-header card-header-title is-centered'>New Job Title</h4>
             <GoalForm />
           </div>
       

@@ -20,7 +20,8 @@ const SingleGoal = (props) => {
       </div>
 
       {goal.interviews.length > 0 && <InterviewList interviews={goal.interviews} username={username} goalId={goal._id}/>}
-      <div className="col-12 mb-3">
+      <div className="card">
+      <h4 className='card-header card-header-title is-centered'>New Interview</h4>
         <InterviewForm  goalId={goal._id}/>
       </div>
         

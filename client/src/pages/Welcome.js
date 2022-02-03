@@ -44,8 +44,8 @@ const Welcome = (props) => {
   }
 
   return (
-    <main className='section is-multiline'>
-      <h1 className='column is-12 content is-large'>
+    <main className='columns is-multiline is-centered'>
+      <h1 className='column is-12 content is-large is-centered'>
         <strong>Welcome to Interview Key!</strong>
         </h1>
       <div className='column is-6'>
@@ -88,7 +88,7 @@ const Welcome = (props) => {
 
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link" type="submit">Submit</button>
+                <button class="button is-info" type="submit">Submit</button>
               </div>
             </div>
             {error && <div>Login failed</div>}
