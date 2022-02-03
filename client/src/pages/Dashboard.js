@@ -19,7 +19,7 @@ const Dashboard = () => {
         
         <div className={`col-12 mb-3`}>
           <h2 class="GoalTitle">
-            Your Interviews
+            Your Positions
           </h2>
         </div>
 

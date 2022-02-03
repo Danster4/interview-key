@@ -17,8 +17,8 @@ const Header = () => {
         <nav className='navbar-end'>
           {Auth.loggedIn() ? (
             <>
-              <Link to="/dashboard">Dashboard</Link>
-              <a href="/" onClick={logout}>
+              <Link className='navbar-item' to="/dashboard">Dashboard</Link>
+              <a className='navbar-item' href="/" onClick={logout}>
                 Logout
               </a>
             </>
