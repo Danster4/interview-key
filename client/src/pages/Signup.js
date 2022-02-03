@@ -39,35 +39,47 @@ const Signup = () => {
         <div className='card'>
           <h4 className='card-header'>Sign Up</h4>
           <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your username'
-                name='username'
-                type='username'
-                id='username'
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn d-block w-100' type='submit'>
+
+
+            <form onSubmit={handleFormSubmit} className="form-center">
+
+              <div class="field">
+                <label class="label">Username</label>
+                <input
+                  className='form-input input is-rounded input-80'
+                  placeholder='Your username'
+                  name='username'
+                  type='username'
+                  id='username'
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <input
+                  className='form-input input is-rounded input-80'
+                  placeholder='Your email'
+                  name='email'
+                  type='email'
+                  id='email'
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <input
+                  className='form-input input is-rounded input-80'
+                  placeholder='******'
+                  name='password'
+                  type='password'
+                  id='password'
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <button className='btn d-block button is-link' type='submit'>
                 Submit
               </button>
             </form>

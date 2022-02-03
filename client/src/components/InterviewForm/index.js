@@ -8,7 +8,7 @@ const InterviewForm = ({ goalId }) => {
   const [interviewLocation, setLocation] = useState('');
   const [interviewTime, setTime] = useState('');
   const [interviewDate, setDate] = useState('');
-  
+
   // addInterview Cache additional needed here
   const [addInterview, { error }] = useMutation(ADD_INTERVIEW, {
     update(cache, { data: { addGoal } }) {
@@ -65,7 +65,7 @@ const InterviewForm = ({ goalId }) => {
     try {
       // add thought to database
       await addInterview({
-        variables: {goalId, interviewPosition, interviewLocation, interviewTime, interviewDate}
+        variables: { goalId, interviewPosition, interviewLocation, interviewTime, interviewDate }
       });
 
       // clear form value
@@ -81,42 +81,58 @@ const InterviewForm = ({ goalId }) => {
   return (
     <div>
       <p className={`m-0 error ? 'text-error' : ''}`}>
-        
+
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form 
-        className="flex-row justify-center justify-space-between-md align-stretch"
+      <form
+        className="flex-row justify-center justify-space-between-md align-stretch container"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="What is the interview position..."
-          value={interviewPosition}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
+        <div class="field">
+          <div class="control">
+            <textarea
+              placeholder="What is the interview position..."
+              value={interviewPosition}
+              className="form-input col-12 col-md-9 textarea is-normal"
+              onChange={handleChange}
+            ></textarea>          </div>
+        </div>
 
-        <textarea
-          placeholder="Where is the interview location..."
-          value={interviewLocation}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange2}
-        ></textarea>
 
-        <textarea
-          placeholder="When is the interview time..."
-          value={interviewTime}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange3}
-        ></textarea>
+        <div class="field">
+          <div class="control">
+            <textarea
+              placeholder="Where is the interview location..."
+              value={interviewLocation}
+              className="form-input col-12 col-md-9 textarea is-normal"
+              onChange={handleChange2}
+            ></textarea>
+          </div>
+        </div>
 
-        <textarea
-          placeholder="When is the interview date..."
-          value={interviewDate}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange4}
-        ></textarea>
+        <div class="field">
+          <div class="control">
+            <textarea
+              placeholder="When is the interview time..."
+              value={interviewTime}
+              className="form-input col-12 col-md-9 textarea is-normal"
+              onChange={handleChange3}
+            ></textarea>
+          </div>
+        </div>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <div class="field">
+          <div class="control">
+            <textarea
+              placeholder="When is the interview date..."
+              value={interviewDate}
+              className="form-input col-12 col-md-9 textarea is-normal"
+              onChange={handleChange4}
+            ></textarea>
+          </div>
+        </div>
+
+        <button className="btn col-12 col-md-3 button is-info" type="submit">
           Submit
         </button>
       </form>
@@ -144,7 +160,7 @@ export default InterviewForm;
 
 //     // update me object's cache, appending new thought to the end of the array
 //     const { me } = cache.readQuery({ query: QUERY_ME });
-//     cache.writeQuery({ 
+//     cache.writeQuery({
 //       query: QUERY_ME,
 //       data: { me: { ...me.goals, interviews: [...me.goals.interviews, addInterview] } }
 //     });
@@ -169,7 +185,7 @@ export default InterviewForm;
 
 //     // update me object's cache, appending new interview to the end of the array
 //     const { me } = cache.readQuery({ query: QUERY_ME });
-//     cache.writeQuery({ 
+//     cache.writeQuery({
 //       query: QUERY_ME,
 //       data: { me: { goals: {interviews: [...me.goals.interviews, addInterview]} } }
 //     });

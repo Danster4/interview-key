@@ -8,7 +8,7 @@ import GoalForm from '../components/GoalForm';
 
 const Dashboard = () => {
   const loggedIn = Auth.loggedIn();
-  
+
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery(QUERY_ME);
   console.log(userData);
@@ -16,27 +16,27 @@ const Dashboard = () => {
   return (
     <main>
       <div className='flex-row justify-space-between'>
-        
+
         <div className={`col-12 mb-3`}>
-          <h2 class="GoalTitle">
+          <h2 className="GoalTitle">
             Your Goals
           </h2>
         </div>
 
         {/* userData is undefined in console log, but token is saved in localStorage */}
         {loggedIn && userData ? (
-          <div className="col-12 col-lg-3 mb-3">
+          <div className="col-12 col-lg-3 mb-3 ">
             <GoalList
               goals={userData.me.goals}
               username={userData.me.username}
             />
           </div>
         ) : null}
-        
-          <div className="col-12 mb-3">
-            <GoalForm />
-          </div>
-      
+
+        <div className="col-12 mb-3">
+          <GoalForm />
+        </div>
+
       </div>
     </main>
   );
