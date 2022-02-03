@@ -55,7 +55,7 @@ const SingleInterview = (props) => {
       {/* </button> */} 
 
       <h1 className='is-size-2 has-text-centered'>
-        Hi {username}
+        Hi, {username}!
       </h1>
       <div className="card mb-3 has-text-centered is-centered">
         <p className="is-size-4 has-text-centered is-centered">
@@ -65,7 +65,7 @@ const SingleInterview = (props) => {
           Interview created on {interview.createdAt}
         </p>
         <div className="card-body">
-          <p><strong>Position:</strong> {interview.interviewPosition}</p>
+          <p><strong>Company:</strong> {interview.interviewPosition}</p>
           <p><strong>Location:</strong> {interview.interviewLocation}</p>
           <p><strong>Interview:</strong> {interview.interviewTime} at {interview.interviewDate}</p>
           <a className='btn-block btn-danger fa fa-trash' onClick={() => handleDeleteInterview(goalId, interview._id)}>
