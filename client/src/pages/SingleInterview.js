@@ -54,26 +54,44 @@ const SingleInterview = (props) => {
         </Link> */}
       {/* </button> */} 
 
-      <h1>
-        Hi {username}
-      </h1>
-      <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {interview.interviewPosition} at {interview.interviewLocation}
-          </span>
-          {' '}
-          goal created on {interview.createdAt}
-        </p>
-        <div className="card-body">
-          <p>Position: {interview.interviewPosition}</p>
-          <p>Location: {interview.interviewLocation}</p>
-          <p>Interview: {interview.interviewTime} at {interview.interviewDate}</p>
-          <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
-            Delete this Interview!
-          </button>
+      <form class="box">
+        <div class="field">
+          <h1>
+            Hi {username}
+          </h1>
+          <p className="card-header">
+            <span style={{ fontWeight: 700 }} className="text-light">
+              {interview.interviewPosition} at {interview.interviewLocation}
+            </span>
+            {' '}
+            goal created on {interview.createdAt}
+          </p>
         </div>
-      </div>      
+        <div class="field">
+          <label class="label">Postion</label>
+          <div class="control">
+            <p>{interview.interviewPosition}</p>
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+            <p>{interview.interviewLocation}</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Interview</label>
+          <div class="control">
+            <p>{interview.interviewTime} at {interview.interviewDate}</p>
+          </div>
+        </div>
+  
+        <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
+          Delete this Interview!
+        </button>
+      </form>
     </div>
 
     
