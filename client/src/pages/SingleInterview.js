@@ -67,6 +67,7 @@ const SingleInterview = (props) => {
             Goal created on {interview.createdAt}
           </p>
         </div>
+        
         <div class="field">
           <label class="label">Postion</label>
           <div class="control">
