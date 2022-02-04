@@ -64,7 +64,7 @@ const SingleInterview = (props) => {
               {interview.interviewPosition} at {interview.interviewLocation}
             </span>
             {' '}
-            goal created on {interview.createdAt}
+            Goal created on {interview.createdAt}
           </p>
         </div>
         <div class="field">
