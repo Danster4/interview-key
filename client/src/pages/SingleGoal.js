@@ -12,6 +12,7 @@ const SingleGoal = (props) => {
           {goal.goalName}
         </p>
       </header>
+      
       <div class="card-content">
         <div class="content">
           <p className="title">
@@ -22,6 +23,7 @@ const SingleGoal = (props) => {
           </p>
         </div>
       </div>
+      
       <footer class="card-footer">
         {goal.interviews.length > 0 && <InterviewList interviews={goal.interviews} username={username} goalId={goal._id}/>}
         <div className="col-12 mb-3">
