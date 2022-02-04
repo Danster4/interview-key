@@ -57,7 +57,7 @@ const SingleInterview = (props) => {
       <form class="box">
         <div class="field">
           <h1>
-            Hey {username}
+            Hello {username}
           </h1>
           <p className="card-header">
             <span style={{ fontWeight: 700 }} className="text-light">
