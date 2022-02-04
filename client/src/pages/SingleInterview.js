@@ -90,7 +90,7 @@ const SingleInterview = (props) => {
         </div>
   
         <button className='btn-block btn-danger' onClick={() => handleDeleteInterview(goalId, interview._id)}>
-          Delete this Interview!
+          Delete this Interview
         </button>
       </form>
     </div>
